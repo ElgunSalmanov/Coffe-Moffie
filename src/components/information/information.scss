@@ -1,0 +1,127 @@
+@mixin mobile {
+  @media (max-width: #{$small}) {
+    @content;
+  }
+}
+
+$small: 576px;
+
+// active link
+a.active {
+  color: #000;
+  font-weight: 600;
+  border: 2px solid #7f5321;
+  color: #7f5321;
+}
+
+.venue {
+  width: 50%;
+  min-width: 50%;
+  // margin-left: 52%;
+
+  @include mobile {
+    width: 100%;
+    margin-left: 5px;
+    margin-block-end: 20px;
+  }
+
+  &-container {
+    @include mobile {
+      display: flex;
+      column-gap: 60px;
+    }
+  }
+
+  &-clock {
+    font-size: 12px;
+    display: flex;
+    column-gap: 3px;
+    margin-block-end: 10px;
+
+    &_image {
+      object-fit: contain;
+      padding: 3px 5px;
+      border: 1px solid #c2c2c2;
+      border-radius: 5px;
+    }
+  }
+
+  &-map {
+    font-size: 12px;
+    display: flex;
+    column-gap: 3px;
+    margin-block-end: 10px;
+
+    &_image {
+      object-fit: contain;
+      padding: 3px 5px;
+      border: 1px solid #c2c2c2;
+      border-radius: 5px;
+    }
+  }
+
+  &-content {
+    width: 10px;
+    margin-block-end: 15px;
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+}
+
+.menu {
+  width: 50%;
+  min-width: 50%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  position: relative;
+
+  @include mobile {
+    width: 100%;
+    margin-left: 5px;
+    margin-block-end: 20px;
+  }
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+    @include mobile {
+      flex-direction: row;
+      column-gap: 20px;
+    }
+  }
+}
+
+.design {
+  width: 100px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border-radius: 5px;
+  border: 1px solid #c2c2c2;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  color: #696969;
+
+  @include mobile {
+    width: 80px;
+    font-size: 11px;
+  }
+}
+
+.information {
+  width: 30%;
+  display: flex;
+
+  @include mobile {
+    width: 100%;
+    display: block;
+  }
+}

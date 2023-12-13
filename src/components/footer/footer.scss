@@ -1,0 +1,90 @@
+@mixin mobile {
+  @media (max-width: #{$small}) {
+    @content;
+  }
+}
+
+$small: 576px;
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 40px;
+  background: #232325;
+  color: #fff;
+
+  @include mobile {
+    display: block;
+    padding: 20px 30px;
+  }
+}
+
+.content {
+  margin: 0px 0px;
+}
+
+.about {
+  &-list {
+    @include mobile {
+      margin-block-end: 60px;
+    }
+
+    &_item {
+      margin: 15px 0px;
+    }
+  }
+}
+
+.social {
+  &-list {
+    @include mobile {
+      margin-block-end: 60px;
+    }
+
+    &_item {
+      margin: 15px 0px;
+    }
+
+    &_link {
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+      color: #fff;
+    }
+  }
+}
+
+.map {
+  @include mobile {
+    width: 100%;
+  }
+
+  &-img {
+    border-radius: 16px;
+    margin-top: 15px;
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+}
+
+.powered {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 20px;
+  background: #232325;
+  color: #fff;
+  border-top: 1px solid #444444;
+
+  @include mobile {
+    display: block;
+    text-align: center;
+  }
+
+  &-year {
+    @include mobile {
+      margin-bottom: 15px;
+    }
+  }
+}

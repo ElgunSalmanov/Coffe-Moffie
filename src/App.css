@@ -1,0 +1,17 @@
+.main {
+  width: 78%;
+  min-width: 78%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+@media (max-width: 576px) {
+  .main {
+    display: block;
+    width: 95%;
+    min-width: 95%;
+    margin: 0px 15px;
+  }
+}
