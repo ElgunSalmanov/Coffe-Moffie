@@ -1,112 +1,58 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Card from "../card/Card";
-import Information from "../information/Information";
 
 function Home() {
-  const [hot] = useState([
-    {
-      id: 1,
-      title: "Cappuccino",
-      price: 10,
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Urna ornare quam cursus nisi donec nisl maecenas fames.",
-      image: "src/assets/img/hot-drinks.png",
-    },
-    {
-      id: 2,
-      title: "Cappuccino",
-      price: 10,
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Urna ornare quam cursus nisi donec nisl maecenas fames.",
-      image: "src/assets/img/hot-drinks.png",
-    },
-    {
-      id: 3,
-      title: "Cappuccino",
-      price: 10,
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Urna ornare quam cursus nisi donec nisl maecenas fames.",
-      image: "src/assets/img/hot-drinks.png",
-    },
-    {
-      id: 4,
-      title: "Cappuccino",
-      price: 10,
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Urna ornare quam cursus nisi donec nisl maecenas fames.",
-      image: "src/assets/img/hot-drinks.png",
-    },
-  ]);
+  const [cold, setCold] = useState([]);
 
-  const [snack] = useState([
-    {
-      id: 1,
-      title: "Club sandwich",
-      price: 10,
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Urna ornare quam cursus nisi donec nisl maecenas fames.",
-      image: "src/assets/img/sandwich.png",
-    },
-    {
-      id: 2,
-      title: "Club sandwich",
-      price: 10,
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Urna ornare quam cursus nisi donec nisl maecenas fames.",
-      image: "src/assets/img/sandwich.png",
-    },
-    {
-      id: 3,
-      title: "Club sandwich",
-      price: 10,
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Urna ornare quam cursus nisi donec nisl maecenas fames.",
-      image: "src/assets/img/sandwich.png",
-    },
-    {
-      id: 4,
-      title: "Club sandwich",
-      price: 10,
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Urna ornare quam cursus nisi donec nisl maecenas fames.",
-      image: "src/assets/img/sandwich.png",
-    },
-  ]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "http://164.92.248.69/secret-api/colddrinks/"
+        );
+        const data = await response.json();
+        setCold(data);
+      } catch (error) {
+        console.error("Error fetching cold drinks data:", error);
+      }
+    };
 
-  const [cold] = useState([
-    {
-      id: 1,
-      title: "Cappuccino",
-      price: 10,
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Urna ornare quam cursus nisi donec nisl maecenas fames.",
-      image: "src/assets/img/cold-drinks.png",
-    },
-    {
-      id: 2,
-      title: "Cappuccino",
-      price: 10,
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Urna ornare quam cursus nisi donec nisl maecenas fames.",
-      image: "src/assets/img/cold-drinks.png",
-    },
-    {
-      id: 3,
-      title: "Cappuccino",
-      price: 10,
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Urna ornare quam cursus nisi donec nisl maecenas fames.",
-      image: "src/assets/img/cold-drinks.png",
-    },
-    {
-      id: 4,
-      title: "Cappuccino",
-      price: 10,
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Urna ornare quam cursus nisi donec nisl maecenas fames.",
-      image: "src/assets/img/cold-drinks.png",
-    },
-  ]);
+    fetchData();
+  }, []);
+
+  const [hot, setHot] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "http://164.92.248.69/secret-api/hotdrinks/"
+        );
+        const data = await response.json();
+        setHot(data);
+      } catch (error) {
+        console.error("Error fetching cold drinks data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const [snack, setSnack] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://164.92.248.69/secret-api/snacks/");
+        const data = await response.json();
+        setSnack(data);
+      } catch (error) {
+        console.error("Error fetching cold drinks data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <>
