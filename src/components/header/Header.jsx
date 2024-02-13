@@ -7,7 +7,11 @@ function Header() {
   return (
     <>
       <header className="head">
-        <img className="head-image" src="src/assets/img/menu.png" alt="menu" />
+        <img
+          className="head-image"
+          src="../../../src/assets/img/menu.png"
+          alt="menu"
+        />
       </header>
     </>
   );

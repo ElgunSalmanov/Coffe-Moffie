@@ -11,7 +11,7 @@ function Information() {
           <div className="venue-clock">
             <img
               className="venue-clock_image"
-              src="src/assets/img/clock.svg"
+              src="../../../src/assets/img/clock.svg"
               alt="clock"
             />
             <div className="venue-clock_container">
@@ -22,7 +22,7 @@ function Information() {
           <div className="venue-map">
             <img
               className="venue-map_image"
-              src="src/assets/img/map-pin.svg"
+              src="../../../src/assets/img/map-pin.svg"
               alt="map"
             />
             <div className="venue-map_container">
